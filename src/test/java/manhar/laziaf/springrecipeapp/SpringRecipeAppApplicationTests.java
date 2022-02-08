@@ -1,4 +1,4 @@
-package com.example.springrecipeapp;
+package manhar.laziaf.springrecipeapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

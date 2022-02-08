@@ -1,4 +1,4 @@
-package com.example.springrecipeapp;
+package manhar.laziaf.springrecipeapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
