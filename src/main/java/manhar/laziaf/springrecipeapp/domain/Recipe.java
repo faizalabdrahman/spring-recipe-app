@@ -119,6 +119,13 @@ public class Recipe
         this.directions = directions;
     }
 
+    public Recipe addIngredient(Ingredient ingredient)
+    {
+        this.ingredientSet.add(ingredient);
+        ingredient.setRecipe(this);
+
+        return this;
+    }
     public Set<Ingredient> getIngredientSet()
     {
         return ingredientSet;
@@ -157,6 +164,7 @@ public class Recipe
     public void setNotes(Notes notes)
     {
         this.notes = notes;
+        notes.setRecipe(this);
     }
 
     public Set<Category> getCategorySet()

@@ -158,21 +158,20 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "get 12 to 16 slices per loaf, depending on how thick you slice it.");
 
         Notes oatmealBreadNotes = new Notes();
-        oatmealBreadNotes.setRecipe(oatmealBreadRecipe);
         oatmealBreadNotes.setRecipeNotes("To improve the bread's taste, do overnight rest in the refrigerator after a final shape. " +
                 "The slow fermentation in the fridge further improves the bread’s flavor as well.");
 
         oatmealBreadRecipe.setNotes(oatmealBreadNotes);
 
-        oatmealBreadRecipe.getIngredientSet().add(new Ingredient("old-fashioned oats", new BigDecimal(2), cupUnitOfMeasure, oatmealBreadRecipe));
-        oatmealBreadRecipe.getIngredientSet().add(new Ingredient("whole wheat flour", new BigDecimal(1), cupUnitOfMeasure, oatmealBreadRecipe));
-        oatmealBreadRecipe.getIngredientSet().add(new Ingredient("boiling water", new BigDecimal(2), cupUnitOfMeasure, oatmealBreadRecipe));
-        oatmealBreadRecipe.getIngredientSet().add(new Ingredient("whole milk", new BigDecimal(2), cupUnitOfMeasure, oatmealBreadRecipe));
-        oatmealBreadRecipe.getIngredientSet().add(new Ingredient("instant yeast", new BigDecimal(4), teaspoonUnitOfMeasure, oatmealBreadRecipe));
-        oatmealBreadRecipe.getIngredientSet().add(new Ingredient("kosher salt", new BigDecimal(1), tablespoonUnitOfMeasure, oatmealBreadRecipe));
-        oatmealBreadRecipe.getIngredientSet().add(new Ingredient("honey", new BigDecimal(6), tablespoonUnitOfMeasure, oatmealBreadRecipe));
-        oatmealBreadRecipe.getIngredientSet().add(new Ingredient("vegetable oil, plus more for greasing the pans", new BigDecimal(6), tablespoonUnitOfMeasure, oatmealBreadRecipe));
-        oatmealBreadRecipe.getIngredientSet().add(new Ingredient("bread flour, plus more for dusting", new BigDecimal(5), cupUnitOfMeasure, oatmealBreadRecipe));
+        oatmealBreadRecipe.addIngredient(new Ingredient("old-fashioned oats", new BigDecimal(2), cupUnitOfMeasure));
+        oatmealBreadRecipe.addIngredient(new Ingredient("whole wheat flour", new BigDecimal(1), cupUnitOfMeasure));
+        oatmealBreadRecipe.addIngredient(new Ingredient("boiling water", new BigDecimal(2), cupUnitOfMeasure));
+        oatmealBreadRecipe.addIngredient(new Ingredient("whole milk", new BigDecimal(2), cupUnitOfMeasure));
+        oatmealBreadRecipe.addIngredient(new Ingredient("instant yeast", new BigDecimal(4), teaspoonUnitOfMeasure));
+        oatmealBreadRecipe.addIngredient(new Ingredient("kosher salt", new BigDecimal(1), tablespoonUnitOfMeasure));
+        oatmealBreadRecipe.addIngredient(new Ingredient("honey", new BigDecimal(6), tablespoonUnitOfMeasure));
+        oatmealBreadRecipe.addIngredient(new Ingredient("vegetable oil, plus more for greasing the pans", new BigDecimal(6), tablespoonUnitOfMeasure));
+        oatmealBreadRecipe.addIngredient(new Ingredient("bread flour, plus more for dusting", new BigDecimal(5), cupUnitOfMeasure));
 
         oatmealBreadRecipe.getCategorySet().add(americanCategory);
         oatmealBreadRecipe.getCategorySet().add(mexicanCategory);
@@ -206,7 +205,6 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "cool, and refrigerate it until ready to use.");
 
         Notes charredCitrusDressingNotes = new Notes();
-        charredCitrusDressingNotes.setRecipe(charredCitrusDressingRecipe);
         charredCitrusDressingNotes.setRecipeNotes("This dressing keeps well in the fridge for up to one week. Since it contains" +
                 " a clove of raw garlic, its flavor may intensify over time. If this is of concern to you, try half of a clove" +
                 " or omit it. I don’t find the garlic overwhelming since the flavor of charred citrus is most prevalent.\n" +
@@ -216,13 +214,13 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         charredCitrusDressingRecipe.setNotes(charredCitrusDressingNotes);
 
-        charredCitrusDressingRecipe.getIngredientSet().add(new Ingredient("olive oil", new BigDecimal(1), tablespoonUnitOfMeasure, charredCitrusDressingRecipe));
-        charredCitrusDressingRecipe.getIngredientSet().add(new Ingredient("lemons", new BigDecimal(2), cupUnitOfMeasure, charredCitrusDressingRecipe));
-        charredCitrusDressingRecipe.getIngredientSet().add(new Ingredient("limes", new BigDecimal(2), cupUnitOfMeasure, charredCitrusDressingRecipe));
-        charredCitrusDressingRecipe.getIngredientSet().add(new Ingredient("garlic", new BigDecimal(1), dashUnitOfMeasure, charredCitrusDressingRecipe));
-        charredCitrusDressingRecipe.getIngredientSet().add(new Ingredient("sea salt", new BigDecimal(1), teaspoonUnitOfMeasure, charredCitrusDressingRecipe));
-        charredCitrusDressingRecipe.getIngredientSet().add(new Ingredient("ground black pepper", new BigDecimal(1), teaspoonUnitOfMeasure, charredCitrusDressingRecipe));
-        charredCitrusDressingRecipe.getIngredientSet().add(new Ingredient("neutral oil, such as grapeseed, avocado, or vegetable", new BigDecimal(1), cupUnitOfMeasure, charredCitrusDressingRecipe));
+        charredCitrusDressingRecipe.addIngredient(new Ingredient("olive oil", new BigDecimal(1), tablespoonUnitOfMeasure));
+        charredCitrusDressingRecipe.addIngredient(new Ingredient("lemons", new BigDecimal(2), cupUnitOfMeasure));
+        charredCitrusDressingRecipe.addIngredient(new Ingredient("limes", new BigDecimal(2), cupUnitOfMeasure));
+        charredCitrusDressingRecipe.addIngredient(new Ingredient("garlic", new BigDecimal(1), dashUnitOfMeasure));
+        charredCitrusDressingRecipe.addIngredient(new Ingredient("sea salt", new BigDecimal(1), teaspoonUnitOfMeasure));
+        charredCitrusDressingRecipe.addIngredient(new Ingredient("ground black pepper", new BigDecimal(1), teaspoonUnitOfMeasure));
+        charredCitrusDressingRecipe.addIngredient(new Ingredient("neutral oil, such as grapeseed, avocado, or vegetable", new BigDecimal(1), cupUnitOfMeasure));
 
         charredCitrusDressingRecipe.getCategorySet().add(americanCategory);
         charredCitrusDressingRecipe.getCategorySet().add(mexicanCategory);
