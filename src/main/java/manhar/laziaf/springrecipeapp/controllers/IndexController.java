@@ -1,34 +1,24 @@
 package manhar.laziaf.springrecipeapp.controllers;
 
-import manhar.laziaf.springrecipeapp.domain.Category;
-import manhar.laziaf.springrecipeapp.domain.UnitOfMeasure;
-import manhar.laziaf.springrecipeapp.repositories.CategoryRepository;
-import manhar.laziaf.springrecipeapp.repositories.UnitOfMeasureRepository;
+import manhar.laziaf.springrecipeapp.services.RecipeService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.Optional;
 
 @Controller
 public class IndexController
 {
-    private final CategoryRepository categoryRepository;
-    private final UnitOfMeasureRepository unitOfMeasureRepository;
+    private final RecipeService recipeService;
 
-    public IndexController(CategoryRepository categoryRepository, UnitOfMeasureRepository unitOfMeasureRepository)
+    public IndexController(RecipeService recipeService)
     {
-        this.categoryRepository = categoryRepository;
-        this.unitOfMeasureRepository = unitOfMeasureRepository;
+        this.recipeService = recipeService;
     }
 
     @GetMapping({"", "/", "/index"})
-    public String getIndexPage()
+    public String getIndexPage(Model model)
     {
-        Optional<Category> categoryOptional = categoryRepository.findByDescription("American");
-        Optional<UnitOfMeasure> unitOfMeasureOptional = unitOfMeasureRepository.findByDescription("Teaspoon");
-
-        System.out.println("Cat Id is: " + categoryOptional.get().getId());
-        System.out.println("Unit Of Measure Id is: " + unitOfMeasureOptional.get().getId());
+        model.addAttribute("recipes", recipeService.getRecipeSet());
 
         return "index";
     }

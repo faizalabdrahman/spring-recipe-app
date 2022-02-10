@@ -9,11 +9,15 @@ public class Notes
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Lob
+    private String recipeNotes;
+
     @OneToOne
     private Recipe recipe;
 
-    @Lob
-    private String recipeNotes;
+    public Notes()
+    {
+    }
 
     public Long getId()
     {
@@ -25,16 +29,6 @@ public class Notes
         this.id = id;
     }
 
-    public Recipe getRecipe()
-    {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe)
-    {
-        this.recipe = recipe;
-    }
-
     public String getRecipeNotes()
     {
         return recipeNotes;
@@ -43,5 +37,15 @@ public class Notes
     public void setRecipeNotes(String recipeNotes)
     {
         this.recipeNotes = recipeNotes;
+    }
+
+    public Recipe getRecipe()
+    {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe)
+    {
+        this.recipe = recipe;
     }
 }
