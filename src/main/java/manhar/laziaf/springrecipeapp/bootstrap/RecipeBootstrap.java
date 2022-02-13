@@ -116,6 +116,9 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         oatmealBreadRecipe.setDescription("Oatmeal Bread");
         oatmealBreadRecipe.setPrepTime(45);
         oatmealBreadRecipe.setCookTime(35);
+        oatmealBreadRecipe.setServings(5);
+        oatmealBreadRecipe.setSource("source");
+        oatmealBreadRecipe.setUrl("https://www.simplyrecipes.com/oatmeal-bread-recipe-5214790");
         oatmealBreadRecipe.setDifficulty(Difficulty.EASY);
         oatmealBreadRecipe.setDirections("1. Make the oatmeal:\n" +
                 "In the bowl of a stand mixer, or a large mixing bowl, combine the oats, whole wheat flour, " +
