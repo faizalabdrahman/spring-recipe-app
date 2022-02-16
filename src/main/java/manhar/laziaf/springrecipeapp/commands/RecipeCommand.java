@@ -21,8 +21,8 @@ public class RecipeCommand
     private String source;
     private String url;
     private String directions;
-    private Set<IngredientCommand> ingredientCommandSet = new HashSet<>();
+    private Set<IngredientCommand> ingredientSet = new HashSet<>();
     private Difficulty difficulty;
-    private NotesCommand notesCommand;
-    private Set<CategoryCommand> categoryCommandSet = new HashSet<>();
+    private NotesCommand notes;
+    private Set<CategoryCommand> categorySet = new HashSet<>();
 }

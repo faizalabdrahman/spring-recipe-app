@@ -64,9 +64,9 @@ public class RecipeCommandToRecipeTest
         IngredientCommand ingredientCommand2 = new IngredientCommand();
         ingredientCommand2.setId(INGREDIENT_CMD_ID_VALUE_2);
 
-        Set<IngredientCommand> ingredientCommandSet = new HashSet<>();
-        ingredientCommandSet.add(ingredientCommand1);
-        ingredientCommandSet.add(ingredientCommand2);
+        Set<IngredientCommand> ingredientSet = new HashSet<>();
+        ingredientSet.add(ingredientCommand1);
+        ingredientSet.add(ingredientCommand2);
 
         NotesCommand notesCommand = new NotesCommand();
         notesCommand.setId(NOTES_CMD_ID_VALUE);
@@ -77,9 +77,9 @@ public class RecipeCommandToRecipeTest
         CategoryCommand categoryCommand2 = new CategoryCommand();
         categoryCommand2.setId(CATEGORY_CMD_ID_VALUE_2);
 
-        Set<CategoryCommand> categoryCommandSet = new HashSet<>();
-        categoryCommandSet.add(categoryCommand1);
-        categoryCommandSet.add(categoryCommand2);
+        Set<CategoryCommand> categorySet = new HashSet<>();
+        categorySet.add(categoryCommand1);
+        categorySet.add(categoryCommand2);
 
         RecipeCommand recipeCommand = new RecipeCommand();
         recipeCommand.setId(RECIPE_CMD_ID_VALUE);
@@ -90,10 +90,10 @@ public class RecipeCommandToRecipeTest
         recipeCommand.setSource(SOURCE);
         recipeCommand.setUrl(URL);
         recipeCommand.setDirections(DIRECTIONS);
-        recipeCommand.setIngredientCommandSet(ingredientCommandSet);
+        recipeCommand.setIngredientSet(ingredientSet);
         recipeCommand.setDifficulty(DIFFICULTY);
-        recipeCommand.setNotesCommand(notesCommand);
-        recipeCommand.setCategoryCommandSet(categoryCommandSet);
+        recipeCommand.setNotes(notesCommand);
+        recipeCommand.setCategorySet(categorySet);
 
         // when
         Recipe recipe = recipeCommandToRecipe.convert(recipeCommand);

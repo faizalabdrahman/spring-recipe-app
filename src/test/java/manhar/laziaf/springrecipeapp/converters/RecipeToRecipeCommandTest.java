@@ -103,9 +103,9 @@ public class RecipeToRecipeCommandTest
         assertEquals(SOURCE, recipeCommand.getSource());
         assertEquals(URL, recipeCommand.getUrl());
         assertEquals(DIRECTIONS, recipeCommand.getDirections());
-        assertEquals(2, recipeCommand.getIngredientCommandSet().size());
+        assertEquals(2, recipeCommand.getIngredientSet().size());
         assertEquals(DIFFICULTY, recipeCommand.getDifficulty());
-        assertEquals(NOTES_ID_VALUE, recipeCommand.getNotesCommand().getId());
-        assertEquals(2, recipeCommand.getCategoryCommandSet().size());
+        assertEquals(NOTES_ID_VALUE, recipeCommand.getNotes().getId());
+        assertEquals(2, recipeCommand.getCategorySet().size());
     }
 }

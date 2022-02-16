@@ -46,7 +46,7 @@ public class RecipeServiceIT
         // then
         assertEquals(DESCRIPTION, savedRecipeCommand.getDescription());
         assertEquals(recipe.getId(), savedRecipeCommand.getId());
-        assertEquals(recipe.getIngredientSet().size(), recipeCommand.getIngredientCommandSet().size());
-        assertEquals(recipe.getCategorySet().size(), recipeCommand.getCategoryCommandSet().size());
+        assertEquals(recipe.getIngredientSet().size(), recipeCommand.getIngredientSet().size());
+        assertEquals(recipe.getCategorySet().size(), recipeCommand.getCategorySet().size());
     }
 }
