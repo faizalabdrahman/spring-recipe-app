@@ -1,5 +1,7 @@
 package manhar.laziaf.springrecipeapp.services;
 
+import manhar.laziaf.springrecipeapp.converters.RecipeCommandToRecipe;
+import manhar.laziaf.springrecipeapp.converters.RecipeToRecipeCommand;
 import manhar.laziaf.springrecipeapp.domain.Recipe;
 import manhar.laziaf.springrecipeapp.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,12 +24,18 @@ public class RecipeServiceImplTest
     @Mock
     RecipeRepository recipeRepository;
 
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
     @BeforeEach
     public void setUp()
     {
         MockitoAnnotations.openMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
