@@ -14,7 +14,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-class RecipeControllerTest
+public class RecipeControllerTest
 {
     @Mock
     RecipeService recipeService;
@@ -24,7 +24,7 @@ class RecipeControllerTest
     MockMvc mockMvc;
 
     @BeforeEach
-    void setUp()
+    public void setUp()
     {
         MockitoAnnotations.openMocks(this);
 
