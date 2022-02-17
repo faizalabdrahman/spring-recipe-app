@@ -67,7 +67,7 @@ public class IngredientCommandToIngredientTest
         ingredientCommand.setId(INGREDIENT_CMD_ID_VALUE);
         ingredientCommand.setDescription(DESCRIPTION);
         ingredientCommand.setAmount(AMOUNT);
-        ingredientCommand.setUnitOfMeasureCommand(unitOfMeasureCommand);
+        ingredientCommand.setUnitOfMeasure(unitOfMeasureCommand);
 
         // when
         Ingredient ingredient = ingredientCommandToIngredient.convert(ingredientCommand);
