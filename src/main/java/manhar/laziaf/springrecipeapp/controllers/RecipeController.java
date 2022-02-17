@@ -6,7 +6,9 @@ import manhar.laziaf.springrecipeapp.services.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Slf4j
 @Controller
@@ -19,7 +21,7 @@ public class RecipeController
         this.recipeService = recipeService;
     }
 
-    @GetMapping("/recipe/show/{recipeId}")
+    @GetMapping("/recipe/{recipeId}/show")
     public String getRecipeById(@PathVariable String recipeId, Model model)
     {
         model.addAttribute("recipe", recipeService.findById(Long.valueOf(recipeId)));
@@ -28,11 +30,27 @@ public class RecipeController
     }
 
     @GetMapping("recipe/new")
-    public String initNewOrUpdateRecipeForm(Model model)
+    public String newRecipeForm(Model model)
     {
         model.addAttribute("recipe", new RecipeCommand());
 
         return "recipe/recipeform";
+    }
+
+    @GetMapping("recipe/{recipeId}/update")
+    public String updateRecipe(@PathVariable String recipeId, Model model)
+    {
+        model.addAttribute("recipe", recipeService.findCommandById(Long.valueOf(recipeId)));
+
+        return "recipe/recipeform";
+    }
+
+    @PostMapping("recipe")
+    public String saveOrUpdateRecipe(@ModelAttribute RecipeCommand recipeCommand)
+    {
+        RecipeCommand savedRecipeCommand = recipeService.savedRecipeCommand(recipeCommand);
+
+        return "redirect:/recipe/" + savedRecipeCommand.getId() + "/show";
     }
 
 }
