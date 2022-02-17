@@ -3,7 +3,9 @@ package manhar.laziaf.springrecipeapp.converters;
 import manhar.laziaf.springrecipeapp.commands.UnitOfMeasureCommand;
 import manhar.laziaf.springrecipeapp.domain.UnitOfMeasure;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UnitOfMeasureCommandToUnitOfMeasure implements Converter<UnitOfMeasureCommand, UnitOfMeasure>
 {
     @Override

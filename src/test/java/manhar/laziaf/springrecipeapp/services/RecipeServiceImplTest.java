@@ -1,5 +1,8 @@
 package manhar.laziaf.springrecipeapp.services;
 
+import manhar.laziaf.springrecipeapp.commands.RecipeCommand;
+import manhar.laziaf.springrecipeapp.converters.RecipeCommandToRecipe;
+import manhar.laziaf.springrecipeapp.converters.RecipeToRecipeCommand;
 import manhar.laziaf.springrecipeapp.domain.Recipe;
 import manhar.laziaf.springrecipeapp.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,12 +25,18 @@ public class RecipeServiceImplTest
     @Mock
     RecipeRepository recipeRepository;
 
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
     @BeforeEach
     public void setUp()
     {
         MockitoAnnotations.openMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
@@ -57,5 +66,25 @@ public class RecipeServiceImplTest
         assertNotNull(recipeReturned);
         verify(recipeRepository, times(1)).findById(anyLong());
 
+    }
+
+    @Test
+    public void findCommandById()
+    {
+        Recipe recipe = new Recipe();
+        recipe.setId(1L);
+        Optional<Recipe> recipeOptional = Optional.of(recipe);
+
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+
+        RecipeCommand recipeCommand = new RecipeCommand();
+        recipeCommand.setId(1L);
+
+        when(recipeToRecipeCommand.convert(any())).thenReturn(recipeCommand);
+
+        RecipeCommand foundRecipeCommand = recipeService.findCommandById(1L);
+
+        assertNotNull(foundRecipeCommand);
+        verify(recipeRepository, times(1)).findById(anyLong());
     }
 }
