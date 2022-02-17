@@ -191,6 +191,9 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         charredCitrusDressingRecipe.setDescription("Charred Citrus Dressing");
         charredCitrusDressingRecipe.setPrepTime(10);
         charredCitrusDressingRecipe.setCookTime(5);
+        charredCitrusDressingRecipe.setServings(5);
+        charredCitrusDressingRecipe.setSource("source");
+        charredCitrusDressingRecipe.setUrl("https://www.simplyrecipes.com/charred-citrus-dressing-recipe-5213680");
         charredCitrusDressingRecipe.setDifficulty(Difficulty.EASY);
         charredCitrusDressingRecipe.setDirections("1. Char the lemons:\n" +
                 "Thinly slice 1 lemon and 1 lime, about 1/4 inch thick. Remove and discard the seeds. In a large cast iron" +
