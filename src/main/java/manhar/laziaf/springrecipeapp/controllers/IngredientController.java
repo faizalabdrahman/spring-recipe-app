@@ -3,6 +3,7 @@ package manhar.laziaf.springrecipeapp.controllers;
 import lombok.extern.slf4j.Slf4j;
 import manhar.laziaf.springrecipeapp.services.IngredientService;
 import manhar.laziaf.springrecipeapp.services.RecipeService;
+import manhar.laziaf.springrecipeapp.services.UnitOfMeasureService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,11 +15,13 @@ public class IngredientController
 {
     private final RecipeService recipeService;
     private final IngredientService ingredientService;
+    private final UnitOfMeasureService unitOfMeasureService;
 
-    public IngredientController(RecipeService recipeService, IngredientService ingredientService)
+    public IngredientController(RecipeService recipeService, IngredientService ingredientService, UnitOfMeasureService unitOfMeasureService)
     {
         this.recipeService = recipeService;
         this.ingredientService = ingredientService;
+        this.unitOfMeasureService = unitOfMeasureService;
     }
 
     @GetMapping("/recipe/{recipeId}/ingredients")
@@ -38,5 +41,15 @@ public class IngredientController
                 ingredientService.findByRecipeIdAndIngredientId(Long.valueOf(recipeId), Long.valueOf(ingredientId)));
 
         return "recipe/ingredient/show";
+    }
+
+    @GetMapping("/recipe/{recipeId}/ingredient/{ingredientId}/update")
+    public String updateRecipeIngredient(@PathVariable String recipeId, @PathVariable String ingredientId, Model model)
+    {
+        model.addAttribute("ingredient",
+                ingredientService.findByRecipeIdAndIngredientId(Long.valueOf(recipeId), Long.valueOf(ingredientId)));
+        model.addAttribute("unitOfMeasureList", unitOfMeasureService.listAllUnitOfMeasure());
+
+        return "recipe/ingredient/ingredientform";
     }
 }
