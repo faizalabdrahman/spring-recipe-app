@@ -66,7 +66,7 @@ public class IngredientControllerTest
         // when
         when(ingredientService.findByRecipeIdAndIngredientId(anyLong(), anyLong())).thenReturn(ingredientCommand);
 
-        mockMvc.perform(get("/recipe/1/ingredients/1/show"))
+        mockMvc.perform(get("/recipe/1/ingredient/1/show"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("ingredient"))
                 .andExpect(view().name("recipe/ingredient/show"));
