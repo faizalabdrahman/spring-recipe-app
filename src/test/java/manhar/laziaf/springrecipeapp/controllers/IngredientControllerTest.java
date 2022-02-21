@@ -83,6 +83,16 @@ public class IngredientControllerTest
     }
 
     @Test
+    public void newRecipeIngredient() throws Exception
+    {
+        mockMvc.perform(get("/recipe/1/ingredient/new"))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("ingredient"))
+                .andExpect(model().attributeExists("unitOfMeasureList"))
+                .andExpect(view().name("recipe/ingredient/ingredientform"));
+    }
+
+    @Test
     public void updateRecipeIngredient() throws Exception
     {
         // given

@@ -2,6 +2,7 @@ package manhar.laziaf.springrecipeapp.controllers;
 
 import lombok.extern.slf4j.Slf4j;
 import manhar.laziaf.springrecipeapp.commands.IngredientCommand;
+import manhar.laziaf.springrecipeapp.commands.UnitOfMeasureCommand;
 import manhar.laziaf.springrecipeapp.services.IngredientService;
 import manhar.laziaf.springrecipeapp.services.RecipeService;
 import manhar.laziaf.springrecipeapp.services.UnitOfMeasureService;
@@ -44,6 +45,19 @@ public class IngredientController
                 ingredientService.findByRecipeIdAndIngredientId(Long.valueOf(recipeId), Long.valueOf(ingredientId)));
 
         return "recipe/ingredient/show";
+    }
+
+    @GetMapping("/recipe/{recipeId}/ingredient/new")
+    public String newRecipeIngredient(@PathVariable String recipeId, Model model)
+    {
+        IngredientCommand ingredientCommand = new IngredientCommand();
+        ingredientCommand.setRecipeId(Long.valueOf(recipeId));
+        ingredientCommand.setUnitOfMeasure(new UnitOfMeasureCommand());
+        model.addAttribute("ingredient", ingredientCommand);
+
+        model.addAttribute("unitOfMeasureList", unitOfMeasureService.listAllUnitOfMeasure());
+
+        return "recipe/ingredient/ingredientform";
     }
 
     @GetMapping("/recipe/{recipeId}/ingredient/{ingredientId}/update")
