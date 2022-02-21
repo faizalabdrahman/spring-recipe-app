@@ -1,13 +1,16 @@
 package manhar.laziaf.springrecipeapp.controllers;
 
 import lombok.extern.slf4j.Slf4j;
+import manhar.laziaf.springrecipeapp.commands.IngredientCommand;
 import manhar.laziaf.springrecipeapp.services.IngredientService;
 import manhar.laziaf.springrecipeapp.services.RecipeService;
 import manhar.laziaf.springrecipeapp.services.UnitOfMeasureService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Slf4j
 @Controller
@@ -51,5 +54,17 @@ public class IngredientController
         model.addAttribute("unitOfMeasureList", unitOfMeasureService.listAllUnitOfMeasure());
 
         return "recipe/ingredient/ingredientform";
+    }
+
+    @PostMapping("/recipe/{recipeId}/ingredient")
+    public String saveOrUpdateIngredient(@ModelAttribute IngredientCommand ingredientCommand)
+    {
+        IngredientCommand savedIngredientCommand = ingredientService.saveIngredientCommand(ingredientCommand);
+
+        log.debug("saved recipe id: " + savedIngredientCommand.getRecipeId());
+        log.debug("saved ingredient id: " + savedIngredientCommand.getId());
+
+        return "redirect:/recipe/" + savedIngredientCommand.getRecipeId() + "/ingredient/"
+                + savedIngredientCommand.getId() + "/show";
     }
 }

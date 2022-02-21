@@ -5,4 +5,6 @@ import manhar.laziaf.springrecipeapp.commands.IngredientCommand;
 public interface IngredientService
 {
     IngredientCommand findByRecipeIdAndIngredientId(Long recipeId, Long IngredientId);
+
+    IngredientCommand saveIngredientCommand(IngredientCommand ingredientCommand);
 }
